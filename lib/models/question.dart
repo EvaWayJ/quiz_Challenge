@@ -3,9 +3,9 @@ class Question{
   String question;
   bool reponse;
   String explication;
-  String imagePage;
+  String imagePath;
 
-  Question(this.question, this.reponse, this.explication, this.imagePage);
+  Question(this.question, this.reponse, this.explication, this.imagePath);
 
 
 }
