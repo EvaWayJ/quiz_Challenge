@@ -62,13 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget switchSelonPlatforme(){
     if(Platform.isIOS){
-      new CupertinoSwitch(value: genre, onChanged: (bool b){
+      return new CupertinoSwitch(value: genre, onChanged: (bool b){
         setState(() {
           genre =b;
         });
       });
     }else{
-      new Switch(
+      return new Switch(
           value: genre,
           inactiveTrackColor: Colors.pink,
           activeTrackColor:  Colors.blue,
@@ -97,6 +97,27 @@ class _MyHomePageState extends State<MyHomePage> {
               color: color,
               fontSize: fontSize
           ));
+    }
+  }
+
+  Widget sliderSelonPlatforme(){
+    double taille =100.0;
+    if(Platform.isIOS){
+      new CupertinoSlider(value: taille,
+          min: 100.0,
+          max: 215.0,
+          onChanged: (double d){
+        setState(() {
+          taille = d;
+        });
+      });
+    }else{
+      return new Slider(value: taille,min: 100.0,
+          max: 215.0, onChanged: (double d){
+        setState(() {
+          taille = d;
+        });
+      });
     }
   }
 }
