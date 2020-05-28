@@ -59,4 +59,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+  Widget textavecstyle(String data, color, {fontSize : 15.0}){
+    if(Platform.isIOS){
+      return new DefaultTextStyle(
+        style: new TextStyle(
+            color: color,
+            fontSize: fontSize),
+        child: new Text(data,
+        textAlign: TextAlign.center,style: new TextStyle(
+            color: color,
+            fontSize: fontSize
+          ),));
+    }else{
+      return new Text(data,
+          style: new TextStyle(
+              color: color,
+              fontSize: fontSize
+          ));
+    }
+  }
 }
