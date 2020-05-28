@@ -12,7 +12,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
+bool genre = false;
 class _MyHomePageState extends State<MyHomePage> {
 
   @override
@@ -59,6 +59,27 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  Widget switchSelonPlatforme(){
+    if(Platform.isIOS){
+      new CupertinoSwitch(value: genre, onChanged: (bool b){
+        setState(() {
+          genre =b;
+        });
+      });
+    }else{
+      new Switch(
+          value: genre,
+          inactiveTrackColor: Colors.pink,
+          activeTrackColor:  Colors.blue,
+          onChanged: (bool b){
+            setState(() {
+              genre =b;
+            });
+          });
+    }
+  }
+
   Widget textavecstyle(String data, color, {fontSize : 15.0}){
     if(Platform.isIOS){
       return new DefaultTextStyle(
