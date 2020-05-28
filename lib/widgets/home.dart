@@ -67,6 +67,36 @@ return new RaisedButton(onPressed: null);
   }
 }
 
+Future<Null> alert(){
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext buildContext){
+        if(Platform.isIOS){
+          return CupertinoAlertDialog(
+            title: new Text("Erreur"),
+            content: new Text("tous les chanmp ne sont pas remplis"),
+            actions: <Widget>[
+          new CupertinoButton(
+          color: Colors.white,
+            onPressed:(){ Navigator.pop(buildContext);},
+            child: new Text("OK")
+          )
+            ],
+          );
+        }else{
+          return new AlertDialog(
+            title: new Text("Erreur"),
+            content: new Text("tous les chanmp ne sont pas remplis"),
+            actions: <Widget>[
+              new FlatButton(onPressed:(){ Navigator.pop(buildContext);}, child: new Text("OK")
+              )],
+          );
+        }
+      }
+    );
+}
+
 Widget ageButton(){
   if(Platform.isIOS){
 
