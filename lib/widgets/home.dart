@@ -59,7 +59,21 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+Widget calcButton(){
+  if(Platform.isIOS){
+return new CupertinoButton(child: null, onPressed: null);
+  }else{
+return new RaisedButton(onPressed: null);
+  }
+}
 
+Widget ageButton(){
+  if(Platform.isIOS){
+
+  }else{
+
+  }
+}
   Widget switchSelonPlatforme(){
     if(Platform.isIOS){
       return new CupertinoSwitch(value: genre, onChanged: (bool b){
